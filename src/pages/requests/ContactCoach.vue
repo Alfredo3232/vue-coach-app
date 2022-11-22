@@ -1,0 +1,3 @@
+<template>
+    ContactCoach Page
+</template>

@@ -1,0 +1,3 @@
+<template>
+    RequestsReceived Page
+</template>

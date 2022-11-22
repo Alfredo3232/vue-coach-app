@@ -1,0 +1,3 @@
+<template>
+    CoachRegister Page
+</template>
