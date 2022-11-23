@@ -20,7 +20,7 @@ export default {
                     id: 'c2',
                     firstName: 'Jenny',
                     lastName: 'Jenny',
-                    areas: ['frontend', 'career'],
+                    areas: ['frontend', 'backend', 'career'],
                     description:
                         ':)',
                     hourlyRate: 300
