@@ -1,7 +1,6 @@
 <template>
     <base-card @submit.prevent="submitForm">
         <form>
-
             <div class="form-control">
                 <label for="email">E-Mail</label>
                 <input type="email" id="email" v-model.trim="email" />
@@ -29,7 +28,9 @@ export default {
             email: '',
             password: '',
             formIsValid: true,
-            mode: 'login'
+            mode: 'login',
+            isLoading: false,
+            error: null
         };
     },
     computed: {
@@ -54,6 +55,15 @@ export default {
             if (this.email === '' || !this.email.includes('@') || this.password.length < 6) {
                 this.formIsValid = false;
                 return;
+            }
+
+            if (this.mode === 'login') {
+                // ...
+            } else {
+                this.$store.dispatch('signup', {
+                    email: this.email,
+                    password: this.password
+                });
             }
         },
         switchAuthMode() {
