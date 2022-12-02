@@ -70,18 +70,19 @@ export default {
 
             this.isLoading = true;
 
+            const actionPayload = {
+                email: this.email,
+                password: this.password
+            };
+
             try {
                 if (this.mode === 'login') {
-                    await this.$store.dispatch('login', {
-                        email: this.email,
-                        password: this.password
-                    });
+                    await this.$store.dispatch('login', actionPayload);
                 } else {
-                    await this.$store.dispatch('signup', {
-                        email: this.email,
-                        password: this.password
-                    });
+                    await this.$store.dispatch('signup', actionPayload);
                 }
+                const redirectUrl = '/' + (this.$route.query.redirect || 'coaches');
+                this.$router.replace(redirectUrl);
             } catch (err) {
                 this.error = err.message || 'Failed to authenticate, try later.';
             }
